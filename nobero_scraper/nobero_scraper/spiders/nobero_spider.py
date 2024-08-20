@@ -98,7 +98,7 @@ class NoberoSpider(scrapy.Spider):
 
             color, size = parts
 
-            if size not in self.valid_sizes:
+            if color in self.valid_sizes:
                 color, size = size, color
 
             value = option.css('::attr(value)').get()
