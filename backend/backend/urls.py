@@ -23,12 +23,6 @@ urlpatterns = [
     path('api/', include('products.urls')),
 ]
 
-urlpatterns=[
-    path('admin/',admin.site.urls)
-]
 
-urlpatterns=[
-    path('admin/',admin.site.urls)
-]
 
 urlpatterns+=staticfiles_urlpatterns()
