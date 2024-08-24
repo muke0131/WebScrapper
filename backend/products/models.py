@@ -1,10 +1,9 @@
 from django.db import models
 
-# Create your models here.
 class Product(models.Model):
-    category = models.CharField(max_length=255)
+    category = models.TextField(null=True, blank=True)
     url = models.URLField()
-    title = models.CharField(max_length=255)
+    title = models.TextField(null=True, blank=True)
     price = models.IntegerField(null=True, blank=True)
     mrp = models.IntegerField(null=True, blank=True)
     last_7_day_sale = models.IntegerField(null=True, blank=True)
@@ -15,14 +14,12 @@ class Product(models.Model):
     pattern = models.TextField(null=True, blank=True)
     length = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-
     class Meta:
         ordering = ['title']
 
 class SKU(models.Model):
     product = models.ForeignKey(Product, related_name='available_skus', on_delete=models.CASCADE)
-    color = models.CharField(max_length=255)
-    size = models.CharField(max_length=10)
-
+    color = models.TextField(null=True, blank=True)
+    size = models.TextField(null=True, blank=True)
     class Meta:
         ordering = ['color', 'size']
